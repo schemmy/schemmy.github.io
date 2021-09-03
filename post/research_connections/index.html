@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Research connections via SimRank - Now optimize what?</title>
+  <meta name="description" content="I feel PageRank and SimRank are very interesting algorithms after learning them. They are able to provide fascinating insights for connections in any area. This blog is one of my attempts of applying SimRank to find such connections, in research areas.
+We all use Arxiv to post our research results. When I posted my first paper, there was a big question to me: How to choose the tags as areas of research?">
+  <meta name="author" content="Chenxin Ma"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "Now optimize what?",
+    
+    "url": "https:\/\/schemmy.github.io"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/schemmy.github.io"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/schemmy.github.io",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/schemmy.github.io\/post\/research_connections\/",
+          "name": "Research connections via sim rank"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Chenxin Ma"
+  },
+  "headline": "Research connections via SimRank",
+  "description" : "I feel PageRank and SimRank are very interesting algorithms after learning them. They are able to provide fascinating insights for connections in any area. This blog is one of my attempts of applying SimRank to find such connections, in research areas.\nWe all use Arxiv to post our research results. When I posted my first paper, there was a big question to me: How to choose the tags as areas of research?",
+  "inLanguage" : "en",
+  "wordCount":  520 ,
+  "datePublished" : "2019-02-20T21:35:34",
+  "dateModified" : "2019-02-20T21:35:34",
+  "image" : "https:\/\/schemmy.github.io\/img\/f1.jpeg",
+  "keywords" : [ "data mining, algorithm" ],
+  "mainEntityOfPage" : "https:\/\/schemmy.github.io\/post\/research_connections\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/schemmy.github.io",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/schemmy.github.io\/img\/f1.jpeg",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:title" content="Research connections via SimRank" />
+<meta property="og:description" content="I feel PageRank and SimRank are very interesting algorithms after learning them. They are able to provide fascinating insights for connections in any area. This blog is one of my attempts of applying SimRank to find such connections, in research areas.
+We all use Arxiv to post our research results. When I posted my first paper, there was a big question to me: How to choose the tags as areas of research?">
+<meta property="og:image" content="https://schemmy.github.io/img/f1.jpeg" />
+<meta property="og:url" content="https://schemmy.github.io/post/research_connections/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Now optimize what?" />
+
+  <meta name="twitter:title" content="Research connections via SimRank" />
+  <meta name="twitter:description" content="I feel PageRank and SimRank are very interesting algorithms after learning them. They are able to provide fascinating insights for connections in any area. This blog is one of my attempts of applying …">
+  <meta name="twitter:image" content="https://schemmy.github.io/img/f1.jpeg" />
+  <meta name="twitter:card" content="summary" />
+  <link href='https://schemmy.github.io/img/f1.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.87.0" />
+  <link rel="alternate" href="https://schemmy.github.io/index.xml" type="application/rss+xml" title="Now optimize what?"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://schemmy.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://schemmy.github.io/css/highlight.min.css" /><link rel="stylesheet" href="https://schemmy.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous"><link rel="stylesheet" href="/css/tweaks.css"/>
+
+<script type="text/javascript" async
+src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+    extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-EZT231LZ7Z', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://schemmy.github.io">Now optimize what?</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent">data mining</a>
+              <div class="navlinks-children">
+                
+                  <a href="/post/research_connections">Research connections</a>
+                
+                  <a href="/post/sportfans">sport fans</a>
+                
+              </div>
+            </li>
+          
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent">blog</a>
+              <div class="navlinks-children">
+                
+                  <a href="/page/add_cron_jobs">cron job</a>
+                
+              </div>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="Now optimize what?" href="https://schemmy.github.io">
+            <img class="avatar-img" src="https://schemmy.github.io/img/f1.jpeg" alt="Now optimize what?" />
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>Research connections via SimRank</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on February 20, 2019
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;minutes
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;520&nbsp;words
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Chenxin Ma
+    
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <nav id="TableOfContents"></nav>
+
+        <p>I feel <a href="https://en.wikipedia.org/wiki/PageRank">PageRank</a> and <a href="https://en.wikipedia.org/wiki/SimRank">SimRank</a> are very interesting algorithms after learning them. They are able to provide fascinating insights for connections in any area. This blog is one of my attempts of applying SimRank to find such connections, in research areas.</p>
+<p>We all use <a href="https://arxiv.org">Arxiv</a> to post our research results. <!-- raw HTML omitted --> When I posted my first paper, there was a big question to me: How to choose the tags as areas of research? cs.LG (machine leanring), stat.ML (also machine learning), math.OC (optimiztion and control), cs.DC (distributed computing)? Fortunately, it is allowed to choose multiple tags, which enables us to make this project happen.</p>
+<p>Let&rsquo;s show some results first. There are two visualizations below. A same color of nodes and links means the same discipline, for example, math or stat. A thicker a link indicates a stronger connections between two research areas. There are many interesting findings, like Math and Statistics are weaker connected than I thought.
+        Connections of research areas for Arxiv papers in 2017
+<img src="/img_post/2017.jpeg" alt="Example image">
+        Connections of research areas for Arxiv papers in 2018
+<img src="/img_post/2018.jpeg" alt="Example image"></p>
+<p>What&rsquo;s coming next is the procedure to make it happen.</p>
+<ol>
+<li>
+<p><strong>Data.</strong> There is no public dataset for article titles and tags on Arxiv, which means I need to gather them by myself:) Finally I got around 27k article records, from which 19% articles have more than one tag.</p>
+</li>
+<li>
+<p><strong>One-hot encoding</strong> The next step is to transform text like tags and article titles into unique numbers. One-hot encoding is a simple and efficient way.</p>
+</li>
+<li>
+<p><strong>SimRank</strong> It&rsquo;s the time to run SimRank now. Basically it means many iterations of sparse matrix-matrix multiplication. I implemented it in Apache Spark to avoid burnout of my laptop. The code is attached at the end.</p>
+</li>
+<li>
+<p><strong>Visualization</strong> The most important step is here. A lot of credits to <a href="https://gephi.org/">Gephi</a>, an amazing software to visualize graph data.</p>
+</li>
+</ol>
+<p>Thanks for reading!</p>
+<p> </p>
+<p> </p>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">from</span> <span class="nn">pyspark</span> <span class="kn">import</span> <span class="n">SparkConf</span><span class="p">,</span> <span class="n">SparkContext</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy.sparse</span> <span class="k">as</span> <span class="nn">sps</span>
+<span class="kn">from</span> <span class="nn">pyspark.mllib.linalg</span> <span class="kn">import</span> <span class="n">Vectors</span>
+<span class="kn">from</span> <span class="nn">pyspark.mllib.linalg</span> <span class="kn">import</span> <span class="n">SparseVector</span>
+<span class="kn">from</span> <span class="nn">pyspark.mllib.regression</span> <span class="kn">import</span> <span class="n">LabeledPoint</span>
+<span class="kn">import</span> <span class="nn">csv</span>
+
+<span class="k">def</span> <span class="nf">parsePoint</span><span class="p">(</span><span class="n">line</span><span class="p">):</span>
+    <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+    <span class="n">label</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">line</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">linksTo</span> <span class="o">=</span> <span class="n">line</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    
+    <span class="n">NNZ</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">linksTo</span><span class="p">)</span>
+    <span class="n">index</span><span class="o">=</span><span class="p">[]</span>
+    <span class="n">values</span><span class="o">=</span><span class="p">[]</span>
+    <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">linksTo</span><span class="p">:</span>
+      <span class="n">index</span><span class="o">+=</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">e</span><span class="p">)]</span>
+      <span class="n">values</span><span class="o">+=</span><span class="p">[</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">NNZ</span><span class="o">+</span><span class="mf">0.0</span><span class="p">)]</span>
+    
+    
+    <span class="k">return</span> <span class="n">LabeledPoint</span><span class="p">(</span><span class="n">label</span><span class="p">,</span><span class="n">SparseVector</span><span class="p">(</span><span class="n">NNZ</span><span class="p">,</span><span class="nb">sorted</span><span class="p">(</span><span class="n">index</span><span class="p">),</span><span class="n">values</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">doMultiplication</span><span class="p">(</span><span class="n">labeledPoint</span><span class="p">):</span>
+  <span class="n">out</span><span class="o">=</span><span class="p">[]</span> 
+  
+  <span class="n">label</span> <span class="o">=</span> <span class="n">labeledPoint</span><span class="o">.</span><span class="n">label</span>
+  <span class="n">sparseVector</span> <span class="o">=</span> <span class="n">labeledPoint</span><span class="o">.</span><span class="n">features</span>
+    
+  <span class="k">if</span> <span class="n">sparseVector</span><span class="o">.</span><span class="n">size</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">ri</span> <span class="o">=</span> <span class="n">r</span><span class="p">[</span><span class="n">labeledPoint</span><span class="o">.</span><span class="n">label</span><span class="p">]</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="n">ri</span><span class="o">*</span><span class="n">sparseVector</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">rowId</span> <span class="ow">in</span> <span class="n">sparseVector</span><span class="o">.</span><span class="n">indices</span><span class="p">:</span>
+       <span class="k">if</span> <span class="n">rowId</span> <span class="o">&lt;</span> <span class="n">totalPages</span><span class="p">:</span>
+         <span class="n">out</span><span class="o">+=</span> <span class="p">[</span> <span class="p">[</span><span class="n">rowId</span><span class="p">,</span>  <span class="n">value</span><span class="p">]</span> <span class="p">]</span>
+
+  <span class="k">return</span> <span class="n">out</span>   
+
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
+    <span class="n">conf</span> <span class="o">=</span> <span class="n">SparkConf</span><span class="p">()</span>
+    <span class="n">conf</span><span class="o">.</span><span class="n">setAppName</span><span class="p">(</span><span class="s2">&#34;SimRank&#34;</span><span class="p">)</span>
+    <span class="n">sc</span> <span class="o">=</span> <span class="n">SparkContext</span><span class="p">(</span><span class="n">conf</span><span class="o">=</span><span class="n">conf</span><span class="p">)</span>
+    <span class="n">batchsize</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">index</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+
+    <span class="n">linkData</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">textFile</span><span class="p">(</span><span class="s1">&#39;catgoNetwork.txt&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">parsePoint</span><span class="p">)</span>
+
+    <span class="n">totalPages</span> <span class="o">=</span> <span class="n">linkData</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">a</span><span class="p">:</span> <span class="n">a</span><span class="o">.</span><span class="n">label</span><span class="p">)</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="nb">max</span><span class="p">)</span>
+    <span class="n">totalPages</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">totalPages</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="s2">&#34;Total catogories &#34;</span><span class="p">,</span> <span class="n">totalPages</span>
+
+
+    <span class="k">for</span> <span class="n">starting</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">batchsize</span><span class="p">):</span>
+        <span class="n">r</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">totalPages</span><span class="p">)</span>
+        <span class="n">st</span><span class="o">=</span> <span class="n">starting</span> <span class="o">+</span> <span class="n">index</span> <span class="o">*</span><span class="n">batchsize</span>
+        <span class="nb">print</span> <span class="n">st</span>
+        <span class="n">r</span><span class="p">[</span><span class="n">st</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
+
+        <span class="n">beta</span><span class="o">=</span><span class="mf">0.8</span>
+        <span class="n">secondPart</span> <span class="o">=</span> <span class="n">r</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">beta</span><span class="p">)</span>
+        <span class="n">linkData</span><span class="o">.</span><span class="n">cache</span><span class="p">()</span>  
+
+        <span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="n">xrange</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>  
+            <span class="c1">#print &#34;Iteration &#34;,it</span>
+            <span class="n">newdata</span> <span class="o">=</span> <span class="n">linkData</span><span class="o">.</span><span class="n">flatMap</span><span class="p">(</span><span class="n">doMultiplication</span><span class="p">)</span>           
+            <span class="n">reducedData</span> <span class="o">=</span> <span class="n">newdata</span><span class="o">.</span><span class="n">reduceByKey</span><span class="p">(</span><span class="k">lambda</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">:</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>    
+            <span class="n">r</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span> <span class="n">totalPages</span> <span class="p">)</span>
+            <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="n">reducedData</span><span class="p">:</span>
+                    <span class="n">r</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">=</span><span class="n">v</span><span class="o">*</span><span class="n">beta</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="n">r</span> <span class="o">+</span> <span class="n">secondPart</span>  
+
+        <span class="n">rOrig</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">top</span> <span class="o">=</span> <span class="n">batchsize</span>
+        <span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">top</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">xrange</span><span class="p">(</span><span class="n">top</span><span class="p">):</span>
+            <span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+            <span class="n">B</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">idx</span><span class="p">;</span> 
+            <span class="n">r</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span>
+
+        <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;edge&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">index</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;.txt&#39;</span>
+        <span class="n">edge</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">xrange</span><span class="p">(</span><span class="n">top</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">i</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+                <span class="n">bm</span> <span class="o">=</span> <span class="n">rOrig</span><span class="p">[</span><span class="n">B</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
+            <span class="k">if</span> <span class="n">i</span><span class="o">&gt;</span><span class="mi">0</span> <span class="ow">and</span> <span class="n">B</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">&lt;</span><span class="mi">133</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">rOrig</span><span class="p">[</span><span class="n">B</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="o">&gt;</span> <span class="n">bm</span><span class="o">/</span><span class="mi">300</span><span class="p">:</span>
+                    <span class="n">edge</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">,</span><span class="si">%d</span><span class="s1">,</span><span class="si">%f</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">st</span><span class="p">,</span> <span class="n">B</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">rOrig</span><span class="p">[</span><span class="n">B</span><span class="p">[</span><span class="n">i</span><span class="p">]]))</span>
+        <span class="n">edge</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+</code></pre></div><!-- raw HTML omitted -->
+
+
+        
+          <div class="blog-tags">
+            
+              <a href="https://schemmy.github.io/tags/data-mining/">data mining</a>&nbsp;
+            
+              <a href="https://schemmy.github.io/tags/algorithm/">algorithm</a>&nbsp;
+            
+          </div>
+        
+
+        
+
+        
+          
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+          
+            <li class="next">
+              <a href="https://schemmy.github.io/post/sportfans/" data-toggle="tooltip" data-placement="top" title="Sport fans&#39; favor">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+        
+        
+      
+
+    </div>
+  </div>
+</div>
+
+      
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="https://github.com/schemmy" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/chenxin-ma-86076256" title="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://scholar.google.com/citations?user=jwL__QkAAAAJ&amp;hl=en&amp;oi=ao" title="googlescholar">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-google fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              <a href="schemmy.github.io">Chenxin Ma</a>
+            
+          
+
+          &nbsp;&bull;&nbsp;&copy; 
+          
+            2021
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://schemmy.github.io">Now optimize what?</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.87.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://schemmy.github.io/js/main.js"></script>
+<script src="https://schemmy.github.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script> renderMathInElement(document.body); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://schemmy.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+<script>
+(function() {
+  var toc = document.getElementById('TableOfContents');
+  if (!toc) return;
+  do {
+    var li, ul = toc.querySelector('ul');
+    if (ul.childElementCount !== 1) break;
+    li = ul.firstElementChild;
+    if (li.tagName !== 'LI') break;
+    
+    ul.outerHTML = li.innerHTML;
+  } while (toc.childElementCount >= 1);
+})();
+</script>
+
+    
+  </body>
+</html>
+

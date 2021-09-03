@@ -7,7 +7,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>404 Page not found - Now optimize what?</title>
+  <title>Add scheduled jobs via Cron on AWS EC2 - Now optimize what?</title>
+  <meta name="description" content="By using Cron, we can schedule the running of scripts at a specific date and time. However, it took me a while to figure out how to make it work on AWS EC2 to schedule a python task. Below are steps.
+1). Need to add conda activate env_name in bash file, so that conda environment is activated automatically before Cron runs.
+2). Create Cron jobs by crontab -e. After setting up the scheduled time following syntax of Crontab, we need to first cd to the path of python script.">
   <meta name="author" content="Chenxin Ma"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -28,14 +31,66 @@
   
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/schemmy.github.io",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/schemmy.github.io\/page\/add_cron_jobs\/",
+          "name": "Add scheduled jobs via cron on aws ec2"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Chenxin Ma"
+  },
+  "headline": "Add scheduled jobs via Cron on AWS EC2",
+  "description" : "By using Cron, we can schedule the running of scripts at a specific date and time. However, it took me a while to figure out how to make it work on AWS EC2 to schedule a python task. Below are steps.\n1). Need to add conda activate env_name in bash file, so that conda environment is activated automatically before Cron runs.\n2). Create Cron jobs by crontab -e. After setting up the scheduled time following syntax of Crontab, we need to first cd to the path of python script.",
+  "inLanguage" : "en",
+  "wordCount":  149 ,
+  "datePublished" : "2020-04-02T21:01:50",
+  "dateModified" : "2020-04-02T21:01:50",
+  "image" : "https:\/\/schemmy.github.io\/img\/f1.jpeg",
+  "keywords" : [ "linux, memo" ],
+  "mainEntityOfPage" : "https:\/\/schemmy.github.io\/page\/add_cron_jobs\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/schemmy.github.io",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/schemmy.github.io\/img\/f1.jpeg",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
 
-<meta property="og:title" content="404 Page not found" />
+<meta property="og:title" content="Add scheduled jobs via Cron on AWS EC2" />
+<meta property="og:description" content="By using Cron, we can schedule the running of scripts at a specific date and time. However, it took me a while to figure out how to make it work on AWS EC2 to schedule a python task. Below are steps.
+1). Need to add conda activate env_name in bash file, so that conda environment is activated automatically before Cron runs.
+2). Create Cron jobs by crontab -e. After setting up the scheduled time following syntax of Crontab, we need to first cd to the path of python script.">
 <meta property="og:image" content="https://schemmy.github.io/img/f1.jpeg" />
-<meta property="og:url" content="https://schemmy.github.io/404.html" />
+<meta property="og:url" content="https://schemmy.github.io/page/add_cron_jobs/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Now optimize what?" />
 
-  <meta name="twitter:title" content="404 Page not found" />
+  <meta name="twitter:title" content="Add scheduled jobs via Cron on AWS EC2" />
+  <meta name="twitter:description" content="By using Cron, we can schedule the running of scripts at a specific date and time. However, it took me a while to figure out how to make it work on AWS EC2 to schedule a python task. Below are steps. …">
   <meta name="twitter:image" content="https://schemmy.github.io/img/f1.jpeg" />
   <meta name="twitter:card" content="summary" />
   <link href='https://schemmy.github.io/img/f1.ico' rel='icon' type='image/x-icon'/>
@@ -155,22 +210,127 @@ if (!doNotTrack) {
 
 
     
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
     
-  <div role="main" class="container main-content">
-    <div class="text-center">
-      <h1 class="error-emoji"></h1>
-      <p class="error-text">Whoops, this page doesn&#39;t exist. Move along. (404 error)</p>
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="page-heading">
+              
+                <h1>Add scheduled jobs via Cron on AWS EC2</h1>
+              
+              
+                <hr class="small">
+              
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <nav id="TableOfContents"></nav>
+
+        <p>By using Cron, we can schedule the running of scripts at a specific date and time. However, it took me a while to figure out how to make it work on AWS EC2 to schedule a python task. Below are steps.</p>
+<p>1). Need to add <code>conda activate env_name</code> in bash file, so that conda environment is activated automatically before Cron runs.</p>
+<p>2). Create Cron jobs by <code>crontab -e</code>. After setting up the scheduled time following <a href="https://docs.oracle.com/cd/E19455-01/805-7229/sysrescron-62861/index.html">syntax of Crontab</a>, we need to first <code>cd</code> to the path of python script. Finally the command should be:</p>
+<p><code>30 13 * * 1,2,3,4,5  cd /absolute/path/to/script/ &amp;&amp; $(which python) /absolute/path/to/script/main.py &gt;&gt; ~/cron.log 2&gt;&amp;1</code></p>
+<p>Notice that, <code>cd</code> command cannot be ignored, even though the absolute path is still needed in the last step. Also, step 1) is also necessary. It won&rsquo;t run if <code>$(which python)</code> is replaced by the absolute path of the python location.</p>
+
+
+        
+          <div class="blog-tags">
+            
+              <a href="https://schemmy.github.io/tags/linux/">linux</a>&nbsp;
+            
+              <a href="https://schemmy.github.io/tags/memo/">memo</a>&nbsp;
+            
+          </div>
+        
+
+        
+
+        
+          
+          
+        
+      </article>
+
+      
+
+
+      
+
     </div>
   </div>
-<script>
-  var errorEmojiContainer = document.getElementsByClassName('error-emoji')[0];
-  var emojiArray = [
-    '\\(o_o)/', '(o^^)o', '(˚Δ˚)b', '(^-^*)', '(≥o≤)', '(^_^)b', '(·_·)',
-    '(=\'X\'=)', '(>_<)', '(;-;)', '\\(^Д^)/',
-  ];
-  var errorEmoji = emojiArray[Math.floor(Math.random() * emojiArray.length)];
-  errorEmojiContainer.appendChild(document.createTextNode(errorEmoji));
-</script>
+</div>
 
       
     <div class="page-meta">

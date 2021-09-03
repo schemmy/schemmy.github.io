@@ -5,7 +5,47 @@
     <link>https://schemmy.github.io/</link>
     <description>Recent content on Now optimize what?</description>
     <generator>Hugo -- gohugo.io</generator>
-    <managingEditor>cxmmwq |a| gmail.com (Chenxin Ma)</managingEditor>
-    <webMaster>cxmmwq |a| gmail.com (Chenxin Ma)</webMaster><atom:link href="https://schemmy.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 01 Oct 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://schemmy.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About Me</title>
+      <link>https://schemmy.github.io/page/about/</link>
+      <pubDate>Tue, 31 Aug 2021 23:36:57 -0700</pubDate>
+      
+      <guid>https://schemmy.github.io/page/about/</guid>
+      <description>Hello! Welcome to this site.
+My name is Chenxin Ma. I work as a staff data scientist at Walmart eCommerce. Previously I was a Research Scientist at JD Silicon Valley Research Center. In May 2018, I obtained my Ph.D in the Department of Industrial and Systems Engineering at Lehigh University. I received my B.S. degrees in both Economics and Mathematics from Nankai University, Tianjin, China and M.Sc. degree in Mathematical Finance from Rutgers University.</description>
+    </item>
+    
+    <item>
+      <title>Sport fans&#39; favor</title>
+      <link>https://schemmy.github.io/post/sportfans/</link>
+      <pubDate>Wed, 02 Sep 2020 21:32:41 -0700</pubDate>
+      
+      <guid>https://schemmy.github.io/post/sportfans/</guid>
+      <description>In the previous post, I played with SimRank algorithm on Arxiv data to show the potential relationship among research areas.
+In this post, I would like to apply the same thing on data from a Chinese sport forum, hupu. In general, the question is &amp;ldquo;is there a pattern for sport fans to support different teams? For example, a fan supports Real Madrid will rarely supports Barcelona at the same time&amp;rdquo;. To me, as a deep sport fan, the final question is &amp;ldquo;For what reasons, a fan becomes a fan for that team&amp;rdquo;?</description>
+    </item>
+    
+    <item>
+      <title>Add scheduled jobs via Cron on AWS EC2</title>
+      <link>https://schemmy.github.io/page/add_cron_jobs/</link>
+      <pubDate>Thu, 02 Apr 2020 21:01:50 -0700</pubDate>
+      
+      <guid>https://schemmy.github.io/page/add_cron_jobs/</guid>
+      <description>By using Cron, we can schedule the running of scripts at a specific date and time. However, it took me a while to figure out how to make it work on AWS EC2 to schedule a python task. Below are steps.
+1). Need to add conda activate env_name in bash file, so that conda environment is activated automatically before Cron runs.
+2). Create Cron jobs by crontab -e. After setting up the scheduled time following syntax of Crontab, we need to first cd to the path of python script.</description>
+    </item>
+    
+    <item>
+      <title>Research connections via SimRank</title>
+      <link>https://schemmy.github.io/post/research_connections/</link>
+      <pubDate>Wed, 20 Feb 2019 21:35:34 -0700</pubDate>
+      
+      <guid>https://schemmy.github.io/post/research_connections/</guid>
+      <description>I feel PageRank and SimRank are very interesting algorithms after learning them. They are able to provide fascinating insights for connections in any area. This blog is one of my attempts of applying SimRank to find such connections, in research areas.
+We all use Arxiv to post our research results. When I posted my first paper, there was a big question to me: How to choose the tags as areas of research?</description>
+    </item>
+    
   </channel>
 </rss>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>linux on Now optimize what?</title>
+    <link>https://schemmy.github.io/tags/linux/</link>
+    <description>Recent content in linux on Now optimize what?</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 02 Apr 2020 21:01:50 -0700</lastBuildDate><atom:link href="https://schemmy.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Add scheduled jobs via Cron on AWS EC2</title>
+      <link>https://schemmy.github.io/page/add_cron_jobs/</link>
+      <pubDate>Thu, 02 Apr 2020 21:01:50 -0700</pubDate>
+      
+      <guid>https://schemmy.github.io/page/add_cron_jobs/</guid>
+      <description>By using Cron, we can schedule the running of scripts at a specific date and time. However, it took me a while to figure out how to make it work on AWS EC2 to schedule a python task. Below are steps.
+1). Need to add conda activate env_name in bash file, so that conda environment is activated automatically before Cron runs.
+2). Create Cron jobs by crontab -e. After setting up the scheduled time following syntax of Crontab, we need to first cd to the path of python script.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>algorithm on Now optimize what?</title>
+    <link>https://schemmy.github.io/tags/algorithm/</link>
+    <description>Recent content in algorithm on Now optimize what?</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 02 Sep 2020 21:32:41 -0700</lastBuildDate><atom:link href="https://schemmy.github.io/tags/algorithm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Sport fans&#39; favor</title>
+      <link>https://schemmy.github.io/post/sportfans/</link>
+      <pubDate>Wed, 02 Sep 2020 21:32:41 -0700</pubDate>
+      
+      <guid>https://schemmy.github.io/post/sportfans/</guid>
+      <description>In the previous post, I played with SimRank algorithm on Arxiv data to show the potential relationship among research areas.
+In this post, I would like to apply the same thing on data from a Chinese sport forum, hupu. In general, the question is &amp;ldquo;is there a pattern for sport fans to support different teams? For example, a fan supports Real Madrid will rarely supports Barcelona at the same time&amp;rdquo;. To me, as a deep sport fan, the final question is &amp;ldquo;For what reasons, a fan becomes a fan for that team&amp;rdquo;?</description>
+    </item>
+    
+    <item>
+      <title>Research connections via SimRank</title>
+      <link>https://schemmy.github.io/post/research_connections/</link>
+      <pubDate>Wed, 20 Feb 2019 21:35:34 -0700</pubDate>
+      
+      <guid>https://schemmy.github.io/post/research_connections/</guid>
+      <description>I feel PageRank and SimRank are very interesting algorithms after learning them. They are able to provide fascinating insights for connections in any area. This blog is one of my attempts of applying SimRank to find such connections, in research areas.
+We all use Arxiv to post our research results. When I posted my first paper, there was a big question to me: How to choose the tags as areas of research?</description>
+    </item>
+    
+  </channel>
+</rss>
