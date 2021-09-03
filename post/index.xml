@@ -5,7 +5,17 @@
     <link>https://schemmy.github.io/post/</link>
     <description>Recent content in Posts on Now optimize what?</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 02 Sep 2020 21:32:41 -0700</lastBuildDate><atom:link href="https://schemmy.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 18 Dec 2020 22:50:25 -0700</lastBuildDate><atom:link href="https://schemmy.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Experiments of different directions in optimization for small neural networks</title>
+      <link>https://schemmy.github.io/post/dnn_symmetry/</link>
+      <pubDate>Fri, 18 Dec 2020 22:50:25 -0700</pubDate>
+      
+      <guid>https://schemmy.github.io/post/dnn_symmetry/</guid>
+      <description>This is a proposal which fails to be turned into a paper during my PhD.
+Problem and Data Let&amp;rsquo;s only focus on two simple networks and two sets of one dimensional data. Network 1 (N1) has the 1−2−1 structure, thus has 7 parameters in total. Network 2 (N2) has the 1−1−1 structure, thus has 4 parameters in total. I tried linear, Relu, sigmoid as three activation functions and square loss as the loss function.</description>
+    </item>
+    
     <item>
       <title>Sport fans&#39; favor</title>
       <link>https://schemmy.github.io/post/sportfans/</link>
