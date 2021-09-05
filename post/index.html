@@ -70,7 +70,7 @@ MathJax.Hub.Config({
 var doNotTrack = false;
 if (!doNotTrack) {
 	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'G-EZT231LZ7Z', 'auto');
+	ga('create', 'UA-206543401-1', 'auto');
 	
 	ga('send', 'pageview');
 }
@@ -115,16 +115,20 @@ if (!doNotTrack) {
                 
                   <a href="/post/dnn_symmetry">symmetry of neural nets</a>
                 
+                  <a href="/post/ortools_vrp_first_stgy">Ortools parameters</a>
+                
               </div>
             </li>
           
         
           
             <li class="navlinks-container">
-              <a class="navlinks-parent">blog</a>
+              <a class="navlinks-parent">code</a>
               <div class="navlinks-children">
                 
                   <a href="/page/add_cron_jobs">cron job</a>
+                
+                  <a href="/post/cuda_combination_search">cuda_search</a>
                 
               </div>
             </li>
@@ -189,8 +193,54 @@ if (!doNotTrack) {
         <div class="posts-list">
           
             <article class="post-preview">
+              <a href="https://schemmy.github.io/post/cuda_combination_search/">
+                <h2 class="post-title">Cuda_combination_search</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                Posted on September 3, 2021
+              </p>
+              <div class="post-entry">
+                
+                  
+                    #include &lt;stdio.h&gt;#include &lt;thrust/host_vector.h&gt;#include &lt;sys/time.h&gt;#include &lt;time.h&gt; #define MAX_N 12 #define nTPB 256 #define GRIDSIZE (32*nTPB)  #define cudaCheckErrors(msg) \ do { \ cudaError_t __err = cudaGetLastError(); \ if (__err != cudaSuccess) { \ fprintf(stderr, &#34;Fatal error: %s (%s at %s:%d)\n&#34;, \ msg, cudaGetErrorString(__err), \ __FILE__, __LINE__); \ fprintf(stderr, &#34;*** FAILED - ABORTING\n&#34;); \ exit(1); \ } \ } while (0)  // thrust code is to quickly prototype a CPU based // method for verification int increment(thrust::host_vector&lt;unsigned&gt; &amp;data, unsigned max){ int pos = 0; int done = 0; int finished = 0; while(!<a href="https://schemmy.github.io/post/cuda_combination_search/" class="post-read-more">[Read More]</a>
+                  
+                
+              </div>
+
+              
+
+            </article>
+          
+            <article class="post-preview">
+              <a href="https://schemmy.github.io/post/ortools_vrp_first_stgy/">
+                <h2 class="post-title">Ortools_vrp_firstStgy</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                Posted on September 3, 2021
+              </p>
+              <div class="post-entry">
+                
+                  
+                    <p>Link:
+<a href="https://google.github.io/or-tools/java/enumcom_1_1google_1_1ortools_1_1constraintsolver_1_1FirstSolutionStrategy_1_1Value.html">https://google.github.io/or-tools/java/enumcom_1_1google_1_1ortools_1_1constraintsolver_1_1FirstSolutionStrategy_1_1Value.html</a></p>
+
+                  
+                
+              </div>
+
+              
+
+            </article>
+          
+            <article class="post-preview">
               <a href="https://schemmy.github.io/post/dnn_symmetry/">
-                <h2 class="post-title">Experiments of different directions in optimization for small neural networks</h2>
+                <h2 class="post-title">Experiments of different directions in optimization for tiny neural nets</h2>
 
                 
               </a>

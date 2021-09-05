@@ -7,6 +7,24 @@
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Tue, 01 Oct 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://schemmy.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Cuda_combination_search</title>
+      <link>https://schemmy.github.io/post/cuda_combination_search/</link>
+      <pubDate>Fri, 03 Sep 2021 21:56:33 -0700</pubDate>
+      
+      <guid>https://schemmy.github.io/post/cuda_combination_search/</guid>
+      <description>#include &amp;lt;stdio.h&amp;gt;#include &amp;lt;thrust/host_vector.h&amp;gt;#include &amp;lt;sys/time.h&amp;gt;#include &amp;lt;time.h&amp;gt; #define MAX_N 12 #define nTPB 256 #define GRIDSIZE (32*nTPB)  #define cudaCheckErrors(msg) \ do { \ cudaError_t __err = cudaGetLastError(); \ if (__err != cudaSuccess) { \ fprintf(stderr, &amp;#34;Fatal error: %s (%s at %s:%d)\n&amp;#34;, \ msg, cudaGetErrorString(__err), \ __FILE__, __LINE__); \ fprintf(stderr, &amp;#34;*** FAILED - ABORTING\n&amp;#34;); \ exit(1); \ } \ } while (0)  // thrust code is to quickly prototype a CPU based // method for verification int increment(thrust::host_vector&amp;lt;unsigned&amp;gt; &amp;amp;data, unsigned max){ int pos = 0; int done = 0; int finished = 0; while(!</description>
+    </item>
+    
+    <item>
+      <title>Ortools_vrp_firstStgy</title>
+      <link>https://schemmy.github.io/post/ortools_vrp_first_stgy/</link>
+      <pubDate>Fri, 03 Sep 2021 09:24:24 -0700</pubDate>
+      
+      <guid>https://schemmy.github.io/post/ortools_vrp_first_stgy/</guid>
+      <description>Link: https://google.github.io/or-tools/java/enumcom_1_1google_1_1ortools_1_1constraintsolver_1_1FirstSolutionStrategy_1_1Value.html</description>
+    </item>
+    
+    <item>
       <title>About Me</title>
       <link>https://schemmy.github.io/page/about/</link>
       <pubDate>Tue, 31 Aug 2021 23:36:57 -0700</pubDate>
@@ -17,7 +35,7 @@ My name is Chenxin Ma. I work as a staff data scientist at Walmart eCommerce. Pr
     </item>
     
     <item>
-      <title>Experiments of different directions in optimization for small neural networks</title>
+      <title>Experiments of different directions in optimization for tiny neural nets</title>
       <link>https://schemmy.github.io/post/dnn_symmetry/</link>
       <pubDate>Fri, 18 Dec 2020 22:50:25 -0700</pubDate>
       
