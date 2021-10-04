@@ -45,6 +45,17 @@ In this post, I would like to apply the same thing on data from a Chinese sport 
     </item>
     
     <item>
+      <title>Add scheduled jobs via Cron on AWS EC2</title>
+      <link>https://schemmy.github.io/post/add_cron_jobs/</link>
+      <pubDate>Thu, 02 Apr 2020 21:01:50 -0700</pubDate>
+      
+      <guid>https://schemmy.github.io/post/add_cron_jobs/</guid>
+      <description>By using Cron, we can schedule the running of scripts at a specific date and time. However, it took me a while to figure out how to make it work on AWS EC2 to schedule a python task. Below are steps.
+1). Need to add conda activate env_name in bash file, so that conda environment is activated automatically before Cron runs.
+2). Create Cron jobs by crontab -e. After setting up the scheduled time following syntax of Crontab, we need to first cd to the path of python script.</description>
+    </item>
+    
+    <item>
       <title>Research connections via SimRank</title>
       <link>https://schemmy.github.io/post/research_connections/</link>
       <pubDate>Wed, 20 Feb 2019 21:35:34 -0700</pubDate>

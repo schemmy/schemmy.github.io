@@ -7,9 +7,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>About Me - Now optimize what?</title>
-  <meta name="description" content="Hello! Welcome to this site.
-My name is Chenxin Ma. I work as a staff data scientist at Walmart eCommerce. Previously I was a Research Scientist at JD Silicon Valley Research Center. In May 2018, I obtained my Ph.D in the Department of Industrial and Systems Engineering at Lehigh University. I received my B.S. degrees in both Economics and Mathematics from Nankai University, Tianjin, China and M.Sc. degree in Mathematical Finance from Rutgers University.">
+  <title>Add scheduled jobs via Cron on AWS EC2 - Now optimize what?</title>
+  <meta name="description" content="By using Cron, we can schedule the running of scripts at a specific date and time. However, it took me a while to figure out how to make it work on AWS EC2 to schedule a python task. Below are steps.
+1). Need to add conda activate env_name in bash file, so that conda environment is activated automatically before Cron runs.
+2). Create Cron jobs by crontab -e. After setting up the scheduled time following syntax of Crontab, we need to first cd to the path of python script.">
   <meta name="author" content="Chenxin Ma"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -45,8 +46,8 @@ My name is Chenxin Ma. I work as a staff data scientist at Walmart eCommerce. Pr
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/schemmy.github.io\/page\/about\/",
-          "name": "About me"
+          "@id": "https:\/\/schemmy.github.io\/post\/add_cron_jobs\/",
+          "name": "Add scheduled jobs via cron on aws ec2"
         }
     }]
 }
@@ -57,15 +58,15 @@ My name is Chenxin Ma. I work as a staff data scientist at Walmart eCommerce. Pr
   "author": {
     "name" : "Chenxin Ma"
   },
-  "headline": "About Me",
-  "description" : "Hello! Welcome to this site.\nMy name is Chenxin Ma. I work as a staff data scientist at Walmart eCommerce. Previously I was a Research Scientist at JD Silicon Valley Research Center. In May 2018, I obtained my Ph.D in the Department of Industrial and Systems Engineering at Lehigh University. I received my B.S. degrees in both Economics and Mathematics from Nankai University, Tianjin, China and M.Sc. degree in Mathematical Finance from Rutgers University.",
+  "headline": "Add scheduled jobs via Cron on AWS EC2",
+  "description" : "By using Cron, we can schedule the running of scripts at a specific date and time. However, it took me a while to figure out how to make it work on AWS EC2 to schedule a python task. Below are steps.\n1). Need to add conda activate env_name in bash file, so that conda environment is activated automatically before Cron runs.\n2). Create Cron jobs by crontab -e. After setting up the scheduled time following syntax of Crontab, we need to first cd to the path of python script.",
   "inLanguage" : "en",
-  "wordCount":  98 ,
-  "datePublished" : "2021-08-31T23:36:57",
-  "dateModified" : "2021-08-31T23:36:57",
+  "wordCount":  149 ,
+  "datePublished" : "2020-04-02T21:01:50",
+  "dateModified" : "2020-04-02T21:01:50",
   "image" : "https:\/\/schemmy.github.io\/img\/f1.jpeg",
-  "keywords" : [ "" ],
-  "mainEntityOfPage" : "https:\/\/schemmy.github.io\/page\/about\/",
+  "keywords" : [ "linux, memo" ],
+  "mainEntityOfPage" : "https:\/\/schemmy.github.io\/post\/add_cron_jobs\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/schemmy.github.io",
@@ -79,17 +80,17 @@ My name is Chenxin Ma. I work as a staff data scientist at Walmart eCommerce. Pr
 }
 </script>
 
-<meta property="og:title" content="About Me" />
-<meta property="og:description" content="Hello! Welcome to this site.
-My name is Chenxin Ma. I work as a staff data scientist at Walmart eCommerce. Previously I was a Research Scientist at JD Silicon Valley Research Center. In May 2018, I obtained my Ph.D in the Department of Industrial and Systems Engineering at Lehigh University. I received my B.S. degrees in both Economics and Mathematics from Nankai University, Tianjin, China and M.Sc. degree in Mathematical Finance from Rutgers University.">
+<meta property="og:title" content="Add scheduled jobs via Cron on AWS EC2" />
+<meta property="og:description" content="By using Cron, we can schedule the running of scripts at a specific date and time. However, it took me a while to figure out how to make it work on AWS EC2 to schedule a python task. Below are steps.
+1). Need to add conda activate env_name in bash file, so that conda environment is activated automatically before Cron runs.
+2). Create Cron jobs by crontab -e. After setting up the scheduled time following syntax of Crontab, we need to first cd to the path of python script.">
 <meta property="og:image" content="https://schemmy.github.io/img/f1.jpeg" />
-<meta property="og:url" content="https://schemmy.github.io/page/about/" />
+<meta property="og:url" content="https://schemmy.github.io/post/add_cron_jobs/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Now optimize what?" />
 
-  <meta name="twitter:title" content="About Me" />
-  <meta name="twitter:description" content="Hello! Welcome to this site.
-My name is Chenxin Ma. I work as a staff data scientist at Walmart eCommerce. Previously I was a Research Scientist at JD Silicon Valley Research Center. In May 2018, I …">
+  <meta name="twitter:title" content="Add scheduled jobs via Cron on AWS EC2" />
+  <meta name="twitter:description" content="By using Cron, we can schedule the running of scripts at a specific date and time. However, it took me a while to figure out how to make it work on AWS EC2 to schedule a python task. Below are steps. …">
   <meta name="twitter:image" content="https://schemmy.github.io/img/f1.jpeg" />
   <meta name="twitter:card" content="summary" />
   <link href='https://schemmy.github.io/img/f1.ico' rel='icon' type='image/x-icon'/>
@@ -313,14 +314,33 @@ if (!doNotTrack) {
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <div class="page-heading">
+            <div class="post-heading">
               
-                <h1>About Me</h1>
-              
-              
-                <hr class="small">
+                <h1>Add scheduled jobs via Cron on AWS EC2</h1>
               
               
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on April 2, 2020
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;1&nbsp;minutes
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;149&nbsp;words
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Chenxin Ma
+    
+  
+  
+</span>
+
+
               
             </div>
           </div>
@@ -337,24 +357,57 @@ if (!doNotTrack) {
       <article role="main" class="blog-post">
         <nav id="TableOfContents"></nav>
 
-        <p>Hello! Welcome to this site.</p>
-<p>My name is Chenxin Ma. I work as a staff data scientist at Walmart eCommerce. Previously I was a Research Scientist at JD Silicon Valley Research Center. In May 2018, I obtained my Ph.D in the Department of Industrial and Systems Engineering at Lehigh University. I received my B.S. degrees in both Economics and Mathematics from Nankai University, Tianjin, China and M.Sc. degree in Mathematical Finance from Rutgers University.</p>
-<p>I am working with Dr. Martin Takáč in areas of non-linear optimization, design and analysis of algorithms, parallel and distributed computing and machine learning.</p>
+        <p>By using Cron, we can schedule the running of scripts at a specific date and time. However, it took me a while to figure out how to make it work on AWS EC2 to schedule a python task. Below are steps.</p>
+<p>1). Need to add <code>conda activate env_name</code> in bash file, so that conda environment is activated automatically before Cron runs.</p>
+<p>2). Create Cron jobs by <code>crontab -e</code>. After setting up the scheduled time following <a href="https://docs.oracle.com/cd/E19455-01/805-7229/sysrescron-62861/index.html">syntax of Crontab</a>, we need to first <code>cd</code> to the path of python script. Finally the command should be:</p>
+<p><code>30 13 * * 1,2,3,4,5  cd /absolute/path/to/script/ &amp;&amp; $(which python) /absolute/path/to/script/main.py &gt;&gt; ~/cron.log 2&gt;&amp;1</code></p>
+<p>Notice that, <code>cd</code> command cannot be ignored, even though the absolute path is still needed in the last step. Also, step 1) is also necessary. It won&rsquo;t run if <code>$(which python)</code> is replaced by the absolute path of the python location.</p>
 
 
+        
+          <div class="blog-tags">
+            
+              <a href="https://schemmy.github.io/tags/linux/">linux</a>&nbsp;
+            
+              <a href="https://schemmy.github.io/tags/memo/">memo</a>&nbsp;
+            
+          </div>
         
 
         
 
         
           
+          
+          <h4 class="see-also">See also</h4>
+          <ul>
+          
+            <li><a href="/page/add_cron_jobs/">Add scheduled jobs via Cron on AWS EC2</a></li>
+          
+          </ul>
           
         
       </article>
 
       
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://schemmy.github.io/post/research_connections/" data-toggle="tooltip" data-placement="top" title="Research connections via SimRank">&larr; Previous Post</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://schemmy.github.io/post/sportfans/" data-toggle="tooltip" data-placement="top" title="Sport fans&#39; favor">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
 
 
+      
+        
+        
       
 
     </div>
@@ -362,14 +415,6 @@ if (!doNotTrack) {
 </div>
 
       
-    <div class="page-meta">
-  
-  
-  
-</div>
-
-
-  
 <footer>
   <div class="container">
     <div class="row">
